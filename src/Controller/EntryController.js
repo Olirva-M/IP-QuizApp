@@ -7,7 +7,7 @@ async function generateMessageLogin(name, password){
         const user = await usersCollection.findOne({ name }); 
         if (!user) return 'user not present';       
         if (user.password !== password) return 'pwd is wrong'; 
-        return 'success';
+        return user.role;
     }
     catch (error) {
         console.log("Error logging in:", error);
